@@ -1,0 +1,246 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="NCNPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Paciente">
+          <Key>
+            <PropertyRef Name="unqCATPacienteKey" />
+          </Key>
+          <Property Name="unqCATPacienteKey" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="vchNombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="vchApellidoPaterno" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="vchApellidoMaterno" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="dtmFechaNacimiento" Type="datetime" Nullable="false" />
+          <Property Name="tIntEdad" Type="tinyint" Nullable="false" />
+          <Property Name="vchGenero" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="vchEscolaridad" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="vchCorreo" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="vchCalle" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="intNumeroExterior" Type="int" Nullable="false" />
+          <Property Name="intNumeroInterior" Type="int" Nullable="false" />
+          <Property Name="vchColonia" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="vchMunicipio" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="vchEstado" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="vchCodigoPostal" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="vchTelefono" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="vchOcupacion" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="vchHorarioLaboral" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="tIntHijos" Type="tinyint" Nullable="false" />
+          <Property Name="vchNotas" Type="text" />
+          <Property Name="vchRFC" Type="varchar" MaxLength="13" Nullable="false" />
+          <Property Name="bitActivo" Type="bit" Nullable="false" />
+        </EntityType>
+        <Function Name="CRUDPaciente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="CAT">
+          <Parameter Name="unqCATPacienteKey" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="vchNombre" Type="varchar" Mode="In" />
+          <Parameter Name="vchApellidoPaterno" Type="varchar" Mode="In" />
+          <Parameter Name="vchApellidoMaterno" Type="varchar" Mode="In" />
+          <Parameter Name="dtmFechaNacimiento" Type="datetime" Mode="In" />
+          <Parameter Name="tintEdad" Type="tinyint" Mode="In" />
+          <Parameter Name="vchGenero" Type="varchar" Mode="In" />
+          <Parameter Name="vchEscolaridad" Type="varchar" Mode="In" />
+          <Parameter Name="vchCorreo" Type="varchar" Mode="In" />
+          <Parameter Name="vchCalle" Type="varchar" Mode="In" />
+          <Parameter Name="intNumeroExterior" Type="int" Mode="In" />
+          <Parameter Name="intNumeroInterior" Type="int" Mode="In" />
+          <Parameter Name="vchColonia" Type="varchar" Mode="In" />
+          <Parameter Name="vchMunicipio" Type="varchar" Mode="In" />
+          <Parameter Name="vchEstado" Type="varchar" Mode="In" />
+          <Parameter Name="vchCodigoPostal" Type="varchar" Mode="In" />
+          <Parameter Name="vchTelefono" Type="varchar" Mode="In" />
+          <Parameter Name="vchOcupacion" Type="varchar" Mode="In" />
+          <Parameter Name="vchHorarioLaboral" Type="varchar" Mode="In" />
+          <Parameter Name="tintHijos" Type="tinyint" Mode="In" />
+          <Parameter Name="vchNotas" Type="text" Mode="In" />
+          <Parameter Name="vchRFC" Type="varchar" Mode="In" />
+          <Parameter Name="bitActivo" Type="bit" Mode="In" />
+          <Parameter Name="Accion" Type="smallint" Mode="In" />
+        </Function>
+        <Function Name="GetPaciente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="CAT">
+          <Parameter Name="unqCATPacienteKey" Type="uniqueidentifier" Mode="In" />
+        </Function>
+        <EntityContainer Name="NCNPModelStoreContainer">
+          <EntitySet Name="Paciente" EntityType="Self.Paciente" Schema="CAT" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="NCNPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Paciente">
+          <Key>
+            <PropertyRef Name="unqCATPacienteKey" />
+          </Key>
+          <Property Name="unqCATPacienteKey" Type="Guid" Nullable="false" />
+          <Property Name="vchNombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="vchApellidoPaterno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="vchApellidoMaterno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="dtmFechaNacimiento" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="tIntEdad" Type="Byte" Nullable="false" />
+          <Property Name="vchGenero" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="vchEscolaridad" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="vchCorreo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="vchCalle" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="intNumeroExterior" Type="Int32" Nullable="false" />
+          <Property Name="intNumeroInterior" Type="Int32" Nullable="false" />
+          <Property Name="vchColonia" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="vchMunicipio" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="vchEstado" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="vchCodigoPostal" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="vchTelefono" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="vchOcupacion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="vchHorarioLaboral" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tIntHijos" Type="Byte" Nullable="false" />
+          <Property Name="vchNotas" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="vchRFC" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="bitActivo" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="NCNPEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Paciente" EntityType="Self.Paciente" />
+          <FunctionImport Name="CRUDPaciente">
+            <Parameter Name="unqCATPacienteKey" Mode="In" Type="Guid" />
+            <Parameter Name="vchNombre" Mode="In" Type="String" />
+            <Parameter Name="vchApellidoPaterno" Mode="In" Type="String" />
+            <Parameter Name="vchApellidoMaterno" Mode="In" Type="String" />
+            <Parameter Name="dtmFechaNacimiento" Mode="In" Type="DateTime" />
+            <Parameter Name="tintEdad" Mode="In" Type="Byte" />
+            <Parameter Name="vchGenero" Mode="In" Type="String" />
+            <Parameter Name="vchEscolaridad" Mode="In" Type="String" />
+            <Parameter Name="vchCorreo" Mode="In" Type="String" />
+            <Parameter Name="vchCalle" Mode="In" Type="String" />
+            <Parameter Name="intNumeroExterior" Mode="In" Type="Int32" />
+            <Parameter Name="intNumeroInterior" Mode="In" Type="Int32" />
+            <Parameter Name="vchColonia" Mode="In" Type="String" />
+            <Parameter Name="vchMunicipio" Mode="In" Type="String" />
+            <Parameter Name="vchEstado" Mode="In" Type="String" />
+            <Parameter Name="vchCodigoPostal" Mode="In" Type="String" />
+            <Parameter Name="vchTelefono" Mode="In" Type="String" />
+            <Parameter Name="vchOcupacion" Mode="In" Type="String" />
+            <Parameter Name="vchHorarioLaboral" Mode="In" Type="String" />
+            <Parameter Name="tintHijos" Mode="In" Type="Byte" />
+            <Parameter Name="vchNotas" Mode="In" Type="String" />
+            <Parameter Name="vchRFC" Mode="In" Type="String" />
+            <Parameter Name="bitActivo" Mode="In" Type="Boolean" />
+            <Parameter Name="Accion" Mode="In" Type="Int16" />
+          </FunctionImport>
+          <FunctionImport Name="GetPaciente" ReturnType="Collection(NCNPModel.GetPaciente_Result)">
+            <Parameter Name="unqCATPacienteKey" Mode="In" Type="Guid" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="GetPaciente_Result">
+          <Property Type="Guid" Name="unqCATPacienteKey" Nullable="false" />
+          <Property Type="String" Name="vchNombre" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="vchApellidoPaterno" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="vchApellidoMaterno" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="dtmFechaNacimiento" Nullable="false" Precision="23" />
+          <Property Type="Byte" Name="tIntEdad" Nullable="false" />
+          <Property Type="String" Name="vchGenero" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="vchEscolaridad" Nullable="false" MaxLength="1" />
+          <Property Type="String" Name="vchCorreo" Nullable="false" MaxLength="255" />
+          <Property Type="String" Name="vchCalle" Nullable="false" MaxLength="255" />
+          <Property Type="Int32" Name="intNumeroExterior" Nullable="false" />
+          <Property Type="Int32" Name="intNumeroInterior" Nullable="false" />
+          <Property Type="String" Name="vchColonia" Nullable="false" MaxLength="255" />
+          <Property Type="String" Name="vchMunicipio" Nullable="false" MaxLength="255" />
+          <Property Type="String" Name="vchEstado" Nullable="false" MaxLength="255" />
+          <Property Type="String" Name="vchCodigoPostal" Nullable="false" MaxLength="5" />
+          <Property Type="String" Name="vchTelefono" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="vchOcupacion" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="vchHorarioLaboral" Nullable="false" MaxLength="255" />
+          <Property Type="Byte" Name="tIntHijos" Nullable="false" />
+          <Property Type="String" Name="vchNotas" Nullable="true" MaxLength="Max" />
+          <Property Type="String" Name="vchRFC" Nullable="false" MaxLength="13" />
+          <Property Type="Boolean" Name="bitActivo" Nullable="false" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="NCNPModelStoreContainer" CdmEntityContainer="NCNPEntities">
+          <EntitySetMapping Name="Paciente">
+            <EntityTypeMapping TypeName="NCNPModel.Paciente">
+              <MappingFragment StoreEntitySet="Paciente">
+                <ScalarProperty Name="unqCATPacienteKey" ColumnName="unqCATPacienteKey" />
+                <ScalarProperty Name="vchNombre" ColumnName="vchNombre" />
+                <ScalarProperty Name="vchApellidoPaterno" ColumnName="vchApellidoPaterno" />
+                <ScalarProperty Name="vchApellidoMaterno" ColumnName="vchApellidoMaterno" />
+                <ScalarProperty Name="dtmFechaNacimiento" ColumnName="dtmFechaNacimiento" />
+                <ScalarProperty Name="tIntEdad" ColumnName="tIntEdad" />
+                <ScalarProperty Name="vchGenero" ColumnName="vchGenero" />
+                <ScalarProperty Name="vchEscolaridad" ColumnName="vchEscolaridad" />
+                <ScalarProperty Name="vchCorreo" ColumnName="vchCorreo" />
+                <ScalarProperty Name="vchCalle" ColumnName="vchCalle" />
+                <ScalarProperty Name="intNumeroExterior" ColumnName="intNumeroExterior" />
+                <ScalarProperty Name="intNumeroInterior" ColumnName="intNumeroInterior" />
+                <ScalarProperty Name="vchColonia" ColumnName="vchColonia" />
+                <ScalarProperty Name="vchMunicipio" ColumnName="vchMunicipio" />
+                <ScalarProperty Name="vchEstado" ColumnName="vchEstado" />
+                <ScalarProperty Name="vchCodigoPostal" ColumnName="vchCodigoPostal" />
+                <ScalarProperty Name="vchTelefono" ColumnName="vchTelefono" />
+                <ScalarProperty Name="vchOcupacion" ColumnName="vchOcupacion" />
+                <ScalarProperty Name="vchHorarioLaboral" ColumnName="vchHorarioLaboral" />
+                <ScalarProperty Name="tIntHijos" ColumnName="tIntHijos" />
+                <ScalarProperty Name="vchNotas" ColumnName="vchNotas" />
+                <ScalarProperty Name="vchRFC" ColumnName="vchRFC" />
+                <ScalarProperty Name="bitActivo" ColumnName="bitActivo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="CRUDPaciente" FunctionName="NCNPModel.Store.CRUDPaciente" />
+          <FunctionImportMapping FunctionImportName="GetPaciente" FunctionName="NCNPModel.Store.GetPaciente">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="NCNPModel.GetPaciente_Result">
+                <ScalarProperty Name="unqCATPacienteKey" ColumnName="unqCATPacienteKey" />
+                <ScalarProperty Name="vchNombre" ColumnName="vchNombre" />
+                <ScalarProperty Name="vchApellidoPaterno" ColumnName="vchApellidoPaterno" />
+                <ScalarProperty Name="vchApellidoMaterno" ColumnName="vchApellidoMaterno" />
+                <ScalarProperty Name="dtmFechaNacimiento" ColumnName="dtmFechaNacimiento" />
+                <ScalarProperty Name="tIntEdad" ColumnName="tIntEdad" />
+                <ScalarProperty Name="vchGenero" ColumnName="vchGenero" />
+                <ScalarProperty Name="vchEscolaridad" ColumnName="vchEscolaridad" />
+                <ScalarProperty Name="vchCorreo" ColumnName="vchCorreo" />
+                <ScalarProperty Name="vchCalle" ColumnName="vchCalle" />
+                <ScalarProperty Name="intNumeroExterior" ColumnName="intNumeroExterior" />
+                <ScalarProperty Name="intNumeroInterior" ColumnName="intNumeroInterior" />
+                <ScalarProperty Name="vchColonia" ColumnName="vchColonia" />
+                <ScalarProperty Name="vchMunicipio" ColumnName="vchMunicipio" />
+                <ScalarProperty Name="vchEstado" ColumnName="vchEstado" />
+                <ScalarProperty Name="vchCodigoPostal" ColumnName="vchCodigoPostal" />
+                <ScalarProperty Name="vchTelefono" ColumnName="vchTelefono" />
+                <ScalarProperty Name="vchOcupacion" ColumnName="vchOcupacion" />
+                <ScalarProperty Name="vchHorarioLaboral" ColumnName="vchHorarioLaboral" />
+                <ScalarProperty Name="tIntHijos" ColumnName="tIntHijos" />
+                <ScalarProperty Name="vchNotas" ColumnName="vchNotas" />
+                <ScalarProperty Name="vchRFC" ColumnName="vchRFC" />
+                <ScalarProperty Name="bitActivo" ColumnName="bitActivo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
