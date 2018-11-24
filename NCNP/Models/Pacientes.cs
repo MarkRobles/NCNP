@@ -18,13 +18,16 @@ namespace NCNP.Models
         [Required(AllowEmptyStrings = false, ErrorMessage = "Usted debe especificar un Apellido Paterno")]
         [MinLength(2, ErrorMessage = "El tamaño minimo  es de 2 letras")]
         [MaxLength(40, ErrorMessage = "El tamaño maximo es de 50 letras")]
+        [Display(Name = "Apellido Paterno")]
         public String ApellidoPaterno { get; set; }
         [Required(AllowEmptyStrings = false, ErrorMessage = "Usted debe especificar un Apellido Materno")]
         [MinLength(2, ErrorMessage = "El tamaño minimo  es de 2 letras")]
         [MaxLength(40, ErrorMessage = "El tamaño maximo es de 50 letras")]
+        [Display(Name = "Apellido Materno")]
         public String ApellidoMaterno { get; set; }
         [Required(AllowEmptyStrings = false, ErrorMessage = "Usted debe especificar una fecha de nacimiento")]
-        [DataType(DataType.DateTime)]
+        [DataType(DataType.Date)]
+        [Display(Name = "Fecha de Nacimiento")]
         public DateTime FechaNacimiento { get; set; }
         [Required(AllowEmptyStrings = false, ErrorMessage = "Usted debe especificar la edad")]
         public Byte Edad { get; set; }
@@ -41,7 +44,9 @@ namespace NCNP.Models
         [MinLength(2, ErrorMessage = "El tamaño minimo  es de 2 letras")]
         [MaxLength(40, ErrorMessage = "El tamaño maximo es de 255 letras")]
         public String Calle { get; set; }
+        [Display(Name = "Número Exterior")]
         public int NumeroExterior { get; set; }
+        [Display(Name = "Número Interior")]
         public int NumeroInterior { get; set; }
         [MinLength(2, ErrorMessage = "El tamaño minimo  es de 2 letras")]
         [MaxLength(40, ErrorMessage = "El tamaño maximo es de 255 letras")]
@@ -54,6 +59,7 @@ namespace NCNP.Models
         public String Estado { get; set; }
         [StringLength(5, ErrorMessage = "El tamaño debse ser de 5 letras")]
         [DataType(DataType.PostalCode)]
+        [Display(Name = "C.P")]
         public String CodigoPostal { get; set; }
         [Required(AllowEmptyStrings = false, ErrorMessage = "Usted debe especificar un telefono")]
         [StringLength(10, ErrorMessage = "El tamaño debe ser de 5 letras")]
@@ -64,6 +70,7 @@ namespace NCNP.Models
         public String Ocupacion { get; set; }
         [MinLength(2, ErrorMessage = "El tamaño minimo  es de 2 letras")]
         [MaxLength(255, ErrorMessage = "El tamaño maximo es de 255 letras")]
+        [Display(Name = "Horario Laboral")]
         public String HorarioLaboral { get; set; }
         public Byte Hijos { get; set; }
         public String Notas { get; set; }

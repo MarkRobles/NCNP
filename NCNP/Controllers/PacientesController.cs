@@ -8,11 +8,13 @@ using System.Web.Mvc;
 
 namespace NCNP.Controllers
 {
+    [Authorize]
     public class PacientesController : Controller
     {
         clsPacientes _paciente = new clsPacientes();
 
         // GET: Pacientes
+        [AllowAnonymous]
         public ActionResult Index()
         {
             return View(_paciente.GetTs());
@@ -21,12 +23,18 @@ namespace NCNP.Controllers
         // GET: Pacientes/Details/5
         public ActionResult Details(Guid id)
         {
+            if (_paciente == null)
+            {
+                HttpNotFound();
+            }
+
             return View(_paciente.GetT(new Models.Pacientes { Id = id }));
         }
 
         // GET: Pacientes/Create
         public ActionResult Create()
         {
+        
             return View();
         }
 
@@ -36,13 +44,13 @@ namespace NCNP.Controllers
         {
             try
             {
-                _paciente.CrudT(Paciente, ECrud.Alta);
                 // TODO: Add insert logic here
-
+                _paciente.CrudT(Paciente, ECrud.Alta);
                 return RedirectToAction("Index");
             }
-            catch
+            catch(Exception ex) 
             {
+                ViewBag.message = ex.Message;
                 return View();
             }
         }
@@ -50,7 +58,13 @@ namespace NCNP.Controllers
         // GET: Pacientes/Edit/5
         public ActionResult Edit(Guid id)
         {
-            return View(_paciente.GetT(new Pacientes { Id = id }));
+
+            if (_paciente == null)
+            {
+                HttpNotFound();
+            }
+
+            return View(_paciente.GetT(new Models.Pacientes { Id = id }));
         }
 
         // POST: Pacientes/Edit/5
@@ -62,7 +76,6 @@ namespace NCNP.Controllers
                 // TODO: Add update logic here
                 paciente.Id = id;
                 _paciente.CrudT(paciente, ECrud.Actualizar);
-
                 return RedirectToAction("Index");
             }
             catch
@@ -72,9 +85,15 @@ namespace NCNP.Controllers
         }
 
         // GET: Pacientes/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(Guid id)
         {
-            return View();
+
+            if (_paciente == null)
+            {
+                HttpNotFound();
+            }
+
+            return View(_paciente.GetT(new Pacientes { Id = id }));
         }
 
         // POST: Pacientes/Delete/5
@@ -85,7 +104,7 @@ namespace NCNP.Controllers
             {
                 // TODO: Add delete logic here
                 paciente.Id = id;
-                _paciente.CrudT(paciente, ECrud.Borrar);
+                _paciente.CrudT(paciente,ECrud.Borrar);
                 return RedirectToAction("Index");
             }
             catch

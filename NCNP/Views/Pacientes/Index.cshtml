@@ -4,12 +4,29 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Lista de Pacientes</h2>
 
+@{
+    if (User.Identity.IsAuthenticated)
+    {
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <a class="glyphicon glyphicon-plus"> @Html.ActionLink("Nuevo", "Create")</a>
 </p>
-<table class="table">
+    }
+}
+
+
+
+@if (ViewBag.Message != null)
+{
+    <script type="text/javascript">
+            window.onload = function () {
+                alert("@ViewBag.Message");
+            };
+    </script>
+}
+
+<table class="table table-hover">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Nombre)
@@ -35,119 +52,123 @@
         <th>
             @Html.DisplayNameFor(model => model.Correo)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Calle)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NumeroExterior)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NumeroInterior)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Colonia)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Municipio)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Estado)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CodigoPostal)
-        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.Calle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumeroExterior)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumeroInterior)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Colonia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Municipio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Estado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CodigoPostal)
+            </th>*@
         <th>
             @Html.DisplayNameFor(model => model.Telefono)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Ocupacion)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.HorarioLaboral)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Hijos)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Notas)
-        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.HorarioLaboral)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Hijos)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Notas)
+            </th>*@
         <th>
             @Html.DisplayNameFor(model => model.RFC)
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nombre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ApellidoPaterno)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ApellidoMaterno)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FechaNacimiento)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Edad)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Genero)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Escolaridad)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Correo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Calle)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NumeroExterior)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NumeroInterior)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Colonia)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Municipio)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Estado)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CodigoPostal)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Telefono)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Ocupacion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.HorarioLaboral)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Hijos)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Notas)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RFC)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApellidoPaterno)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApellidoMaterno)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaNacimiento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Edad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Genero)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Escolaridad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Correo)
+            </td>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.Calle)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumeroExterior)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumeroInterior)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Colonia)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Municipio)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Estado)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CodigoPostal)
+                </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefono)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ocupacion)
+            </td>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.HorarioLaboral)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Hijos)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Notas)
+                </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.RFC)
+            </td>
+            <td>
+                @Html.ActionLink(" ", "Edit", new { id = item.Id }, new { @class = "glyphicon glyphicon-pencil" })
+                @Html.ActionLink(" ", "Details", new { id = item.Id }, new { @class = "glyphicon glyphicon-search" })
+                @Html.ActionLink(" ", "Delete", new { id = item.Id }, new { @class = "glyphicon glyphicon-trash" })
+            </td>
+        </tr>
+    }
+
+
 
 </table>
+

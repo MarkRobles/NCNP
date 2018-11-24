@@ -28,8 +28,13 @@ namespace NCNP.DataContext
         }
     
         public virtual DbSet<Paciente> Paciente { get; set; }
+        public virtual DbSet<C__MigrationHistory> C__MigrationHistory { get; set; }
+        public virtual DbSet<AspNetRoles> AspNetRoles { get; set; }
+        public virtual DbSet<AspNetUserClaims> AspNetUserClaims { get; set; }
+        public virtual DbSet<AspNetUserLogins> AspNetUserLogins { get; set; }
+        public virtual DbSet<AspNetUsers> AspNetUsers { get; set; }
     
-        public virtual int CRUDPaciente(Nullable<System.Guid> unqCATPacienteKey, string vchNombre, string vchApellidoPaterno, string vchApellidoMaterno, Nullable<System.DateTime> dtmFechaNacimiento, Nullable<byte> tintEdad, string vchGenero, string vchEscolaridad, string vchCorreo, string vchCalle, Nullable<int> intNumeroExterior, Nullable<int> intNumeroInterior, string vchColonia, string vchMunicipio, string vchEstado, string vchCodigoPostal, string vchTelefono, string vchOcupacion, string vchHorarioLaboral, Nullable<byte> tintHijos, string vchNotas, string vchRFC, Nullable<bool> bitActivo, Nullable<short> accion)
+        public virtual int CRUDPaciente(Nullable<System.Guid> unqCATPacienteKey, string vchNombre, string vchApellidoPaterno, string vchApellidoMaterno, Nullable<System.DateTime> dtmFechaNacimiento, Nullable<byte> tintEdad, string vchGenero, string vchEscolaridad, string vchCorreo, string vchCalle, Nullable<int> intNumeroExterior, Nullable<int> intNumeroInterior, string vchColonia, string vchMunicipio, string vchEstado, string vchCodigoPostal, string vchTelefono, string vchOcupacion, string vchHorarioLaboral, Nullable<byte> tintHijos, string vchNotas, string vchRFC, Nullable<short> accion)
         {
             var unqCATPacienteKeyParameter = unqCATPacienteKey.HasValue ?
                 new ObjectParameter("unqCATPacienteKey", unqCATPacienteKey) :
@@ -119,15 +124,11 @@ namespace NCNP.DataContext
                 new ObjectParameter("vchRFC", vchRFC) :
                 new ObjectParameter("vchRFC", typeof(string));
     
-            var bitActivoParameter = bitActivo.HasValue ?
-                new ObjectParameter("bitActivo", bitActivo) :
-                new ObjectParameter("bitActivo", typeof(bool));
-    
             var accionParameter = accion.HasValue ?
                 new ObjectParameter("Accion", accion) :
                 new ObjectParameter("Accion", typeof(short));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("CRUDPaciente", unqCATPacienteKeyParameter, vchNombreParameter, vchApellidoPaternoParameter, vchApellidoMaternoParameter, dtmFechaNacimientoParameter, tintEdadParameter, vchGeneroParameter, vchEscolaridadParameter, vchCorreoParameter, vchCalleParameter, intNumeroExteriorParameter, intNumeroInteriorParameter, vchColoniaParameter, vchMunicipioParameter, vchEstadoParameter, vchCodigoPostalParameter, vchTelefonoParameter, vchOcupacionParameter, vchHorarioLaboralParameter, tintHijosParameter, vchNotasParameter, vchRFCParameter, bitActivoParameter, accionParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("CRUDPaciente", unqCATPacienteKeyParameter, vchNombreParameter, vchApellidoPaternoParameter, vchApellidoMaternoParameter, dtmFechaNacimientoParameter, tintEdadParameter, vchGeneroParameter, vchEscolaridadParameter, vchCorreoParameter, vchCalleParameter, intNumeroExteriorParameter, intNumeroInteriorParameter, vchColoniaParameter, vchMunicipioParameter, vchEstadoParameter, vchCodigoPostalParameter, vchTelefonoParameter, vchOcupacionParameter, vchHorarioLaboralParameter, tintHijosParameter, vchNotasParameter, vchRFCParameter, accionParameter);
         }
     
         public virtual ObjectResult<GetPaciente_Result> GetPaciente(Nullable<System.Guid> unqCATPacienteKey)

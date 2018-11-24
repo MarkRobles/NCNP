@@ -13,29 +13,29 @@ namespace NCNP.Clases
         NCNPEntities db = new NCNPEntities();
         public void CrudT(Pacientes value, ECrud Accion)
         {
-            //db.CRUDPaciente(
-            //    value.Id,
-            //    value.Nombre,
-            //    value.ApellidoPaterno,
-            //    value.ApellidoMaterno,
-            //    value.FechaNacimiento,
-            //    value.Edad,
-            //    value.Genero,
-            //    value.Escolaridad,
-            //    value.Correo,
-            //    value.Calle,
-            //    value.NumeroExterior,
-            //    value.NumeroInterior,
-            //    value.Colonia,
-            //    value.Municipio,
-            //    value.Estado,
-            //    value.CodigoPostal,
-            //    value.Telefono,
-            //    value.Ocupacion,
-            //    value.HorarioLaboral,
-            //    value.Hijos,
-            //    value.Notas,
-            //    value.RFC, (short)Accion);
+            db.CRUDPaciente(
+                value.Id,
+                value.Nombre,
+                value.ApellidoPaterno,
+                value.ApellidoMaterno,
+                value.FechaNacimiento,
+                value.Edad,
+                value.Genero,
+                value.Escolaridad,
+                value.Correo,
+                value.Calle,
+                value.NumeroExterior,
+                value.NumeroInterior,
+                value.Colonia,
+                value.Municipio,
+                value.Estado,
+                value.CodigoPostal,
+                value.Telefono,
+                value.Ocupacion,
+                value.HorarioLaboral,
+                value.Hijos,
+                value.Notas,
+                value.RFC ,(short)Accion);
         }
 
         public Pacientes GetT(Pacientes value)
@@ -44,7 +44,7 @@ namespace NCNP.Clases
             {
                 Nombre = x.vchNombre,
                 ApellidoPaterno = x.vchApellidoPaterno,
-                ApellidoMaterno = x.vchApellidoPaterno,
+                ApellidoMaterno = x.vchApellidoMaterno,
                 FechaNacimiento = x.dtmFechaNacimiento,
                 Edad = x.tIntEdad,
                 Genero = x.vchGenero,
@@ -73,7 +73,7 @@ namespace NCNP.Clases
                 Id = x.unqCATPacienteKey,
                 Nombre = x.vchNombre,
                 ApellidoPaterno = x.vchApellidoPaterno,
-                ApellidoMaterno = x.vchApellidoPaterno,
+                ApellidoMaterno = x.vchApellidoMaterno,
                 FechaNacimiento = x.dtmFechaNacimiento,
                 Edad = x.tIntEdad,
                 Genero = x.vchGenero,

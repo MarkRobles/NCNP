@@ -219,6 +219,21 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PacientesController.cs" />
+    <Compile Include="DataContext\AspNetRoles.cs">
+      <DependentUpon>NCNP_EDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\AspNetUserClaims.cs">
+      <DependentUpon>NCNP_EDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\AspNetUserLogins.cs">
+      <DependentUpon>NCNP_EDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\AspNetUsers.cs">
+      <DependentUpon>NCNP_EDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\C__MigrationHistory.cs">
+      <DependentUpon>NCNP_EDM.tt</DependentUpon>
+    </Compile>
     <Compile Include="DataContext\GetPaciente_Result.cs">
       <DependentUpon>NCNP_EDM.tt</DependentUpon>
     </Compile>
@@ -851,7 +866,7 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layoutold.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
@@ -875,17 +890,17 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Shared\_AdminLteTopMenu.cshtml" />
+    <Content Include="Views\Shared\_AdminLteLeftMenu.cshtml" />
+    <Content Include="Views\Shared\_AdminLteLayout.cshtml" />
+    <Content Include="Views\Shared\_AdminLteBreadcrumb.cshtml" />
+    <Content Include="Views\AdminLte\Index.cshtml" />
+    <Content Include="Views\AdminLte\Colors.cshtml" />
     <Content Include="Views\Pacientes\Index.cshtml" />
     <Content Include="Views\Pacientes\Details.cshtml" />
     <Content Include="Views\Pacientes\Create.cshtml" />
     <Content Include="Views\Pacientes\Edit.cshtml" />
     <Content Include="Views\Pacientes\Delete.cshtml" />
-    <Content Include="Views\Shared\_AdminLteTopMenu.cshtml" />
-    <Content Include="Views\Shared\_AdminLteLeftMenu.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Shared\_AdminLteBreadcrumb.cshtml" />
-    <Content Include="Views\AdminLte\Index.cshtml" />
-    <Content Include="Views\AdminLte\Colors.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
